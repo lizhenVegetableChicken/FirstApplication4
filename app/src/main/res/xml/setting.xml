@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:key="Wifi"
+        android:title="Wifi定位"
+        android:defaultValue="true"
+    ></SwitchPreference>
+    <SwitchPreference
+            android:key="GPS"
+            android:title="GPS定位"
+            android:defaultValue="true"
+    ></SwitchPreference>
+    <SwitchPreference
+            android:key="Jizhan"
+            android:title="基站定位"
+            android:defaultValue="true"
+    ></SwitchPreference>
+
+</PreferenceScreen>

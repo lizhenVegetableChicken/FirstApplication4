@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        id="@+id/tab_set"
+        icon="@mipmap/ic_bottom_vlist_unselect"
+        title="设定"
+        ></tab>
+
+    <tab
+            id="@+id/tab_listener"
+            icon="@mipmap/ic_bottom_mvlist_unselect"
+            title="障碍物播报"
+    ></tab>
+
+    <tab
+        id="@+id/tab_map"
+        icon="@mipmap/ic_bottom_home_icon"
+        title="地图"
+        ></tab>
+
+</PreferenceScreen>

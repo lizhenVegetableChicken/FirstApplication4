@@ -1,0 +1,11 @@
+所有者: C=US, O=Android, CN=Android Debug
+发布者: C=US, O=Android, CN=Android Debug
+序列号: 1
+有效期为 Mon Mar 29 09:43:46 CST 2021 至 Wed Mar 22 09:43:46 CST 2051
+证书指纹:
+         MD5:  B1:8F:D4:BB:59:06:D5:72:C3:1D:41:C5:F0:82:BE:BF
+         SHA1: 41:AF:33:EB:D3:74:94:FB:B7:F3:27:96:0C:FA:6B:7A:B2:8E:1B:EB
+         SHA256: 8E:6D:83:95:19:11:B1:14:79:B6:28:34:35:4D:17:0B:AB:38:7B:11:12:0C:4B:9C:3F:C3:28:B8:A7:32:E7:8D
+签名算法名称: SHA1withRSA
+主体公共密钥算法: 2048 位 RSA 密钥
+版本: 1

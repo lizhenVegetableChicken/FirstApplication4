@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true"
+        android:orientation="vertical"
+        tools:ignore="MissingDefaultResource">
+
+
+<!--    <Button-->
+<!--            android:id="@+id/bt_bluetooth"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:drawableTop="@drawable/ic_baseline_bluetooth_searching_24"-->
+<!--            android:text="蓝牙设置"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+<!--    <Button-->
+<!--            android:id="@+id/cesu"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="88dp"-->
+<!--            android:layout_marginEnd="8dp"-->
+<!--            android:drawableTop="@drawable/ic_baseline_bluetooth_searching_24"-->
+<!--            android:text="速度"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <Guideline-->
+<!--            android:id="@+id/guideline3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintGuide_percent="0.5" />-->
+
+
+</LinearLayout>
