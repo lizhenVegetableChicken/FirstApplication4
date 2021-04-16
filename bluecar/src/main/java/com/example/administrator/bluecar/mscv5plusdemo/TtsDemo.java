@@ -98,11 +98,13 @@ public class TtsDemo extends Activity implements OnClickListener {
 
 //	用来测试本页面的广播的
 //	public void sendBroad(View v) {
+//        System.out.println("TtsDemo的sendBroad运行了......................................");
 //		EditText et = findViewById(R.id.test_test);
 //		Intent intent = new Intent();
 //		intent.setAction("com.lizhen.test");
-//		intent.putExtra("msg",et.getText().toString());
+//		intent.putExtra("bytes",et.getText().toString().getBytes());
 //		sendBroadcast(intent);
+//        System.out.println("..................................结束");
 //	}
 
 
@@ -203,18 +205,18 @@ public class TtsDemo extends Activity implements OnClickListener {
 		}
 	};*/
     //	用来接收蓝牙发来的广播数据，然后调用display()显示
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-
-            System.out.println("我运行了....................................");
-
-            String msg = intent.getStringExtra("msg");
-            text = msg;
-            Toast.makeText(TtsDemo.this, text, Toast.LENGTH_SHORT).show();
-            display();
-        }
-    };
+//    private BroadcastReceiver receiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//
+//            System.out.println("我运行了....................................");
+//
+//            String msg = intent.getStringExtra("msg");
+//            text = msg;
+//            Toast.makeText(TtsDemo.this, text, Toast.LENGTH_SHORT).show();
+//            display();
+//        }
+//    };
 
     @SuppressLint("ShowToast")
     public void onCreate(Bundle savedInstanceState) {
@@ -226,16 +228,16 @@ public class TtsDemo extends Activity implements OnClickListener {
 
 		System.out.println("TtsDemo的create........................................");
 
-        Button button = findViewById(R.id.submit_btn);
-        button.setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(TtsDemo.this, BleSppActivity.class));
-			}
-		});
-
-        registerReceiver(receiver,
-                new IntentFilter("com.demo.broadcast"));
+//        Button button = findViewById(R.id.submit_btn);
+//        button.setOnClickListener(new View.OnClickListener(){
+//			@Override
+//			public void onClick(View v) {
+////				startActivity(new Intent(TtsDemo.this, BleSppActivity.class));
+//			}
+//		});
+//
+//        registerReceiver(receiver,
+//                new IntentFilter("com.demo.broadcast"));
 //		registerReceiver(receiver,new IntentFilter("com.lizhen.test"));
 
 

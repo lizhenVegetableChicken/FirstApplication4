@@ -90,6 +90,7 @@ public class BleSppActivity extends Activity implements View.OnClickListener {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
+            System.out.println("..............................getAction："+action);
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
 
             } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
@@ -105,14 +106,17 @@ public class BleSppActivity extends Activity implements View.OnClickListener {
             } else if (BluetoothLeService.ACTION_GATT_SERVICES_NO_DISCOVERED.equals(action)) {
                 mBluetoothLeService.connect(mDeviceAddress);
             } else if (BluetoothLeService.ACTION_DATA_AVAILABLE.equals(action)) {
+//            } else if ("com.lizhen.test".equals(action)) {
 //                final byte[] data = intent.getByteArrayExtra(BluetoothLeService.EXTRA_DATA);
 //                final StringBuilder stringBuilder = new StringBuilder();
 //                 for(byte byteChar : data)
 //                      stringBuilder.append(String.format("%02X ", byteChar));
 //                Log.v("log",stringBuilder.toString());
 
-
+                System.out.println("displayData前面..................................");
                 displayData(intent.getByteArrayExtra(BluetoothLeService.EXTRA_DATA));
+//                displayData(intent.getByteArrayExtra("bytes"));
+                System.out.println("displayData后面.....................");
 
 
             } else if (BluetoothLeService.ACTION_WRITE_SUCCESSFUL.equals(action)) {
@@ -139,6 +143,7 @@ public class BleSppActivity extends Activity implements View.OnClickListener {
         intentFilter.addAction(BluetoothLeService.ACTION_DATA_AVAILABLE);
         intentFilter.addAction(BluetoothLeService.ACTION_WRITE_SUCCESSFUL);
         intentFilter.addAction(BluetoothLeService.ACTION_GATT_SERVICES_NO_DISCOVERED);
+//        intentFilter.addAction("com.lizhen.test");
         return intentFilter;
     }
 
@@ -149,16 +154,23 @@ public class BleSppActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.ble_spp);
 
 
+
+        registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
+        if (mBluetoothLeService != null) {
+            final boolean result = mBluetoothLeService.connect(mDeviceAddress);
+            Log.d(TAG, "Connect request result=" + result);
+        }
+
         System.out.println("BleSppActivity的create........................................");
 
             //TIAOZHUAN 按钮跳到显示页面
-        Button button = findViewById(R.id.btn_fly);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BleSppActivity.this,TtsDemo.class));
-            }
-        });
+//        Button button = findViewById(R.id.btn_fly);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(BleSppActivity.this,TtsDemo.class));
+//            }
+//        });
 
         //??????????
         final Intent intent = getIntent();
@@ -225,27 +237,27 @@ public class BleSppActivity extends Activity implements View.OnClickListener {
         bindService(gattServiceIntent, mServiceConnection, BIND_AUTO_CREATE);
 
 
-//        //        //直接跳转到show页面
-//        Intent intent1 = new Intent(BleSppActivity.this, TtsDemo.class);
-////        intent.putExtra("msg","A");
-//        startActivity(intent1);
+//               //直接跳转到show页面
+        Intent intent1 = new Intent(BleSppActivity.this, TtsDemo.class);
+//        intent.putExtra("msg","A");
+        startActivity(intent1);
 
 
 //        用来测试的
-        Button button2 = findViewById(R.id.btn_jump_show);
-        EditText et2 = findViewById(R.id.test_data_read);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                System.out.println("这里运行了..........................1");
-//                String s = et2.getText().toString();
-//                Intent intent8 = new Intent(BleSppActivity.this, TtsDemo.class);
-//                intent8.putExtra("msg", s);
-//                System.out.println("这里运行了");
-//                startActivity(intent8);
-                test();
-            }
-        });
+//        Button button2 = findViewById(R.id.btn_jump_show);
+//        EditText et2 = findViewById(R.id.test_data_read);
+//        button2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                System.out.println("这里运行了..........................1");
+////                String s = et2.getText().toString();
+////                Intent intent8 = new Intent(BleSppActivity.this, TtsDemo.class);
+////                intent8.putExtra("msg", s);
+////                System.out.println("这里运行了");
+////                startActivity(intent8);
+//                test();
+//            }
+//        });
 
     }
 
@@ -259,18 +271,13 @@ public class BleSppActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
-        if (mBluetoothLeService != null) {
-            final boolean result = mBluetoothLeService.connect(mDeviceAddress);
-            Log.d(TAG, "Connect request result=" + result);
-        }
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(mGattUpdateReceiver);
+//        unregisterReceiver(mGattUpdateReceiver);
     }
 
     @Override
@@ -440,8 +447,6 @@ public class BleSppActivity extends Activity implements View.OnClickListener {
             recv_cnt = 0;
             mData.delete(0, mData.length() / 2); //UI?????512??????APP??
         }
-
-
 
         String s;
         if (mDataRecvFormat.getText().equals("Ascii")) {

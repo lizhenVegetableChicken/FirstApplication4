@@ -74,11 +74,11 @@
             android:screenOrientation="portrait" >
         </activity>
 
-        <receiver android:name=".bluetooth.MyComsutoer" android:exported="true">
+  <!--      <receiver android:name=".bluetooth.MyComsutoer" android:exported="true">
             <intent-filter>
                 <action android:name="com.itheima.com"/>
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
         <!--<receiver android:name=".mscv5plusdemo.TtsDemo"
             android:enabled="true"
